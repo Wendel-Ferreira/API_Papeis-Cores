@@ -1,10 +1,12 @@
 package com.api.papeis.cores.API_Papeis.Cores.Model.Estoque;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 
 import java.util.List;
 
 @Entity
+@Getter
 @Table(name = "Insumos")
 public class Insumo {
     @Id
@@ -29,6 +31,8 @@ public class Insumo {
     @Column
     private Float valorTotalEstoque;
 
+    public Insumo() {
+    }
 
     //Essa função vai ser adicionada no construtor
     public void divPacote(Float precoPacote , Float qntNoPacote){
@@ -41,31 +45,4 @@ public class Insumo {
         valorTotalEstoque = qntEstoque * precoPacote;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public int getQntEstoque() {
-        return qntEstoque;
-    }
-
-    public Float getPrecoPacote() {
-        return precoPacote;
-    }
-
-    public Integer getQntNoPacote() {
-        return qntNoPacote;
-    }
-
-    public Float getValorUnitario() {
-        return valorUnitario;
-    }
-
-    public Float getValorTotalEstoque() {
-        return valorTotalEstoque;
-    }
 }

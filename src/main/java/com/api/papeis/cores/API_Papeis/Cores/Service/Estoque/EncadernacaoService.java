@@ -31,6 +31,7 @@ public class EncadernacaoService {
     }
 
     public Encadernacao update(Encadernacao produtos){
+
         return jpaProduto.save(produtos);
     }
 

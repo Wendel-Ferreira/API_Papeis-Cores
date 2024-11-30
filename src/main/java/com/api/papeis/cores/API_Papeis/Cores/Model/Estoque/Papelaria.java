@@ -1,11 +1,13 @@
 package com.api.papeis.cores.API_Papeis.Cores.Model.Estoque;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Getter
 @Table(name = "Papelaria")
 public class Papelaria {
     @Id
@@ -38,6 +40,9 @@ public class Papelaria {
 
     private Float taxa; // Criar o calculo e colocar nessa variavel
 
+    public Papelaria() {
+    }
+
     //Essa função preçoPAcote / qntNoPacote , = valorUnitario)
     public void divPacote(Float precoPacote , Float qntNoPacote){
         Float div = precoPacote / qntNoPacote;
@@ -46,49 +51,7 @@ public class Papelaria {
 
 
 
-
     //Calculo (Taxa 5%) Deixar essa taxa fixa em uma variavel, 1º
     // + (% Lucro) Tentar visualizar como String e com %, 2º
     // + (% Margem) Tentar visualizar como String e com %, 3º
-
-
-    public Integer getId() {
-        return id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public int getQnt() {
-        return qnt;
-    }
-
-    public Float getPrecoTotal() {
-        return precoTotal;
-    }
-
-    public Float getPrecoPacote() {
-        return precoPacote;
-    }
-
-    public Integer getQntNoPacote() {
-        return qntNoPacote;
-    }
-
-    public Float getValorUnitario() {
-        return valorUnitario;
-    }
-
-    public Float getLucro() {
-        return Lucro;
-    }
-
-    public int getMargem() {
-        return Margem;
-    }
-
-    public Float getTaxa() {
-        return taxa;
-    }
 }
