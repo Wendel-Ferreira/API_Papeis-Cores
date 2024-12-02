@@ -33,6 +33,7 @@ public class Encadernacao {
     public Encadernacao() {
     }
 
+    //Fazer o toString já formatando os preços com R$
 
     //Calculo (Taxa 5%) Deixar essa taxa fixa em uma variavel
     // + (% Lucro) Tentar visualizar como String e com %

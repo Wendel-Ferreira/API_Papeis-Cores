@@ -1,12 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.api.papeis.cores.API_Papeis.Cores.Controller.JavaFX.ControllerMain">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.api.papeis.cores.API_Papeis.Cores.Controller.JavaFX.ControllerMain">
    <children>
-      <Button fx:id="bntStart" layoutX="164.0" layoutY="188.0" mnemonicParsing="false" text="Button" />
-      <Label layoutX="130.0" layoutY="86.0" prefHeight="17.0" prefWidth="103.0" text="Label"  />
+      <VBox prefHeight="400.0" prefWidth="177.0" styleClass="background-left-main" stylesheets="@CSS/Style.css" HBox.hgrow="ALWAYS">
+         <children>
+            <Label text="Menu">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Label>
+            <Button mnemonicParsing="false" onAction="#CenaPapelaria" styleClass="left-main-button" stylesheets="@CSS/Style.css" text="Papelaria" />
+            <Button mnemonicParsing="false" onAction="#CenaEncadernacao" styleClass="left-main-button" stylesheets="@CSS/Style.css" text="Encadernação" />
+            <Button mnemonicParsing="false" onAction="#CenaInsumo" styleClass="left-main-button" stylesheets="@CSS/Style.css" text="Insumos" />
+            <Button mnemonicParsing="false" onAction="#CenaClientes" styleClass="left-main-button" stylesheets="@CSS/Style.css" text="Clientes" />
+            <Button mnemonicParsing="false" onAction="#CenaExtrato" styleClass="left-main-button" stylesheets="@CSS/Style.css" text="Extratos" />
+            <Button mnemonicParsing="false" onAction="#CenaDashboard" styleClass="left-main-button" stylesheets="@CSS/Style.css" text="Dashboard">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Button>
+         </children>
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+      </VBox>
+      <VBox prefHeight="400.0" prefWidth="358.0" styleClass="background-right-main" stylesheets="@CSS/Style.css" HBox.hgrow="ALWAYS" />
    </children>
-</AnchorPane>
+</HBox>

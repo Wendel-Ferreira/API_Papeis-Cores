@@ -49,7 +49,7 @@ public class Papelaria {
 
     }
 
-
+    //Fazer o toString já formatando os preços com R$
 
     //Calculo (Taxa 5%) Deixar essa taxa fixa em uma variavel, 1º
     // + (% Lucro) Tentar visualizar como String e com %, 2º

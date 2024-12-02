@@ -45,4 +45,5 @@ public class Insumo {
         valorTotalEstoque = qntEstoque * precoPacote;
     }
 
+    //Fazer o toString já formatando os preços com R$
 }

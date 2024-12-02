@@ -1,0 +1,17 @@
+/*Botões menu navegação esqueda */
+.left-main-button{
+    -fx-font-size: 20px;
+    -fx-background-color: #EFEFC8;
+    -fx-text-fill: black;
+    -fx-background-radius: 40px;
+     -fx-padding: 10px 20px;
+}
+
+/* fundo VBox esquedo */
+.background-left-main{
+    -fx-background-color: #4BBDE9;
+}
+/* fundo VBox direito */
+.background-right-main{
+    -fx-background-color: #C9F0CF;
+}
