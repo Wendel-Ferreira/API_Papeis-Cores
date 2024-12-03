@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+      fx:controller="com.api.papeis.cores.API_Papeis.Cores.Controller.JavaFX.Estoque.Encadernacao.ControllerMenuEncadernacao" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+         <children>
+            <Label text="MENU ENCADERNAÇÃO" />
+            <Button mnemonicParsing="false" text="Adicionar" onAction="#CenaAddEncadernacao"/>
+            <Button mnemonicParsing="false" text="Editar" onAction="#CenaEditarEncadernacao" />
+            <Button mnemonicParsing="false" text="Lista Encadernação" onAction="#CenaTableEncadernacao"/>
+            <Button mnemonicParsing="false" text="Voltar" onAction="#CenaInicial"/>
+         </children>
+      </VBox>
+      <VBox prefHeight="400.0" prefWidth="387.0" HBox.hgrow="ALWAYS" />
+   </children>
+</HBox>

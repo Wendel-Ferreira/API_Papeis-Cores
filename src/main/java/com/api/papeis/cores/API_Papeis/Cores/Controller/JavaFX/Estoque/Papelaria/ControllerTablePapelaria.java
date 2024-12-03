@@ -10,9 +10,9 @@ public class ControllerTablePapelaria {
 
     //Botão voltar
     @FXML
-    public void CenaInicial(ActionEvent event){
+    public void cenaMenuPapelaria(ActionEvent event){
         try {
-            MainApplication.trocaCena("/templates/View/PaginaInicial.fxml");
+            MainApplication.trocaCena("/templates/View/Estoque/Papelaria/MenuPapelaria.fxml");
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

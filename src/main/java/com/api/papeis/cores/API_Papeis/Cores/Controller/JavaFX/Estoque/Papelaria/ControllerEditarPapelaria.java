@@ -6,8 +6,8 @@ import javafx.fxml.FXML;
 import org.springframework.stereotype.Controller;
 
 @Controller
-public class ControllerAddPapelaria {
-
+public class ControllerEditarPapelaria {
+    //construir uma forma de clicar no produto e preencher o TextFild com todo os dados e conseguir editar
     //Botão voltar
     @FXML
     public void cenaMenuPapelaria(ActionEvent event){

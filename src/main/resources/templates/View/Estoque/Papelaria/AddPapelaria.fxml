@@ -9,7 +9,8 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.api.papeis.cores.API_Papeis.Cores.Controller.JavaFX.Estoque.Papelaria.ControllerAddPapelaria">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.api.papeis.cores.API_Papeis.Cores.Controller.JavaFX.Estoque.Papelaria.ControllerAddPapelaria">
    <children>
       <VBox prefHeight="400.0" prefWidth="0.0" HBox.hgrow="ALWAYS">
          <children>
@@ -28,7 +29,7 @@
             <Label text="Adicionar Insumos" />
             <ChoiceBox prefWidth="150.0" />
             <Button mnemonicParsing="false" text="Adicionar Produto" />
-          <Button mnemonicParsing="false" onAction="#CenaInicial" text="Voltar" />
+          <Button mnemonicParsing="false" onAction="#cenaMenuPapelaria" text="Voltar" />
          </children>
       </VBox>
       <VBox prefHeight="400.0" prefWidth="240.0" HBox.hgrow="ALWAYS">

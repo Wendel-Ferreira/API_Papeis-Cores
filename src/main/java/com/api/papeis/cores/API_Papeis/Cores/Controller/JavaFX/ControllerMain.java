@@ -34,7 +34,7 @@ public class ControllerMain implements Initializable {
     @FXML
     public void CenaEncadernacao(ActionEvent event){
         try {
-            MainApplication.trocaCena("/templates/View/Estoque/Encadernacao/AddEncadernacao.fxml");
+            MainApplication.trocaCena("/templates/View/Estoque/Encadernacao/MenuEncadernacao.fxml");
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -42,7 +42,7 @@ public class ControllerMain implements Initializable {
     @FXML
     public void CenaInsumo(ActionEvent event){
         try {
-            MainApplication.trocaCena("/templates/View/Estoque/Insumo/AddInsumo.fxml");
+            MainApplication.trocaCena("/templates/View/Estoque/Insumo/MenuInsumo.fxml");
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -51,7 +51,7 @@ public class ControllerMain implements Initializable {
     @FXML
     public void CenaClientes(ActionEvent event){
         try {
-            MainApplication.trocaCena("/templates/View/Clientes/AddClientes.fxml");
+            MainApplication.trocaCena("/templates/View/Clientes/MenuClientes.fxml");
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

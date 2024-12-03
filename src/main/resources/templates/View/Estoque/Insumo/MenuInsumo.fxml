@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.api.papeis.cores.API_Papeis.Cores.Controller.JavaFX.Estoque.Insumo.ControllerMenuInsumo">
+   <children>
+      <VBox prefHeight="400.0" prefWidth="220.0" HBox.hgrow="ALWAYS">
+         <children>
+            <Label text="MENU INSUMO" />
+            <Button mnemonicParsing="false" text="Adicionar" onAction="#cenaAddInsumo" />
+            <Button mnemonicParsing="false" text="Editar" onAction="#cenaEditarInsumo" />
+            <Button mnemonicParsing="false" text="Lista Insumos" onAction="#cenaTableInsumo"/>
+            <Button mnemonicParsing="false" text="Voltar" onAction="#CenaInicial" />
+         </children>
+      </VBox>
+      <VBox prefHeight="400.0" prefWidth="399.0" HBox.hgrow="ALWAYS" />
+   </children>
+</HBox>

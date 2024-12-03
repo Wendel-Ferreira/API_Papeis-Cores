@@ -6,24 +6,25 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.api.papeis.cores.API_Papeis.Cores.Controller.JavaFX.ControllerMain">
    <children>
-      <VBox alignment="CENTER" prefHeight="400.0" prefWidth="177.0" styleClass="background-left-main" stylesheets="@CSS/Style.css" HBox.hgrow="ALWAYS">
+      <VBox alignment="CENTER" prefHeight="400.0" prefWidth="177.0" styleClass="background-left-main" stylesheets="@Style/CSS/Style.css" HBox.hgrow="ALWAYS">
          <children>
             <Line endX="100.0" startX="-100.0" stroke="WHITE" strokeType="OUTSIDE" />
-            <Label styleClass="label-menu" stylesheets="@CSS/Style.css" text="Menu" textFill="WHITE">
+            <Label styleClass="label-menu" stylesheets="@Style/CSS/Style.css" text="Menu" textFill="WHITE">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
             </Label>
             <Line endX="100.0" startX="-100.0" stroke="WHITE" strokeType="OUTSIDE" />
-            <Button mnemonicParsing="false" onAction="#CenaPapelaria" styleClass="left-main-button" stylesheets="@CSS/Style.css" text="Papelaria" />
-            <Button mnemonicParsing="false" onAction="#CenaEncadernacao" styleClass="left-main-button" stylesheets="@CSS/Style.css" text="Encadernação" />
-            <Button mnemonicParsing="false" onAction="#CenaInsumo" styleClass="left-main-button" stylesheets="@CSS/Style.css" text="Insumos" />
-            <Button mnemonicParsing="false" onAction="#CenaClientes" styleClass="left-main-button" stylesheets="@CSS/Style.css" text="Clientes" />
-            <Button mnemonicParsing="false" onAction="#CenaExtrato" styleClass="left-main-button" stylesheets="@CSS/Style.css" text="Extratos" />
-            <Button mnemonicParsing="false" onAction="#CenaDashboard" styleClass="left-main-button" stylesheets="@CSS/Style.css" text="Dashboard">
+            <Button mnemonicParsing="false" onAction="#CenaPapelaria" styleClass="left-main-button" stylesheets="@Style/CSS/Style.css" text="Papelaria" />
+            <Button mnemonicParsing="false" onAction="#CenaEncadernacao" styleClass="left-main-button" stylesheets="@Style/CSS/Style.css" text="Encadernação" />
+            <Button mnemonicParsing="false" onAction="#CenaInsumo" styleClass="left-main-button" stylesheets="@Style/CSS/Style.css" text="Insumos" />
+            <Button mnemonicParsing="false" onAction="#CenaClientes" styleClass="left-main-button" stylesheets="@Style/CSS/Style.css" text="Clientes" />
+            <Button mnemonicParsing="false" onAction="#CenaExtrato" styleClass="left-main-button" stylesheets="@Style/CSS/Style.css" text="Extratos" />
+            <Button mnemonicParsing="false" onAction="#CenaDashboard" styleClass="left-main-button" stylesheets="@Style/CSS/Style.css" text="Dashboard">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
@@ -33,6 +34,18 @@
             <Insets />
          </HBox.margin>
       </VBox>
-      <VBox prefHeight="400.0" prefWidth="358.0" styleClass="background-right-main" stylesheets="@CSS/Style.css" HBox.hgrow="ALWAYS" />
+      <VBox prefHeight="400.0" prefWidth="358.0" styleClass="background-right-main" stylesheets="@Style/CSS/Style.css" HBox.hgrow="ALWAYS">
+         <children>
+            <Label text="AQUI TERÁ STATUS DA LOJA" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label text="TERÁ UMA PARTE DE VENDA DE PRODUTOS" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children></VBox>
    </children>
 </HBox>
