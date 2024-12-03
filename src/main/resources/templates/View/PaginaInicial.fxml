@@ -5,16 +5,19 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.api.papeis.cores.API_Papeis.Cores.Controller.JavaFX.ControllerMain">
    <children>
-      <VBox prefHeight="400.0" prefWidth="177.0" styleClass="background-left-main" stylesheets="@CSS/Style.css" HBox.hgrow="ALWAYS">
+      <VBox alignment="CENTER" prefHeight="400.0" prefWidth="177.0" styleClass="background-left-main" stylesheets="@CSS/Style.css" HBox.hgrow="ALWAYS">
          <children>
-            <Label text="Menu">
+            <Line endX="100.0" startX="-100.0" stroke="WHITE" strokeType="OUTSIDE" />
+            <Label styleClass="label-menu" stylesheets="@CSS/Style.css" text="Menu" textFill="WHITE">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
             </Label>
+            <Line endX="100.0" startX="-100.0" stroke="WHITE" strokeType="OUTSIDE" />
             <Button mnemonicParsing="false" onAction="#CenaPapelaria" styleClass="left-main-button" stylesheets="@CSS/Style.css" text="Papelaria" />
             <Button mnemonicParsing="false" onAction="#CenaEncadernacao" styleClass="left-main-button" stylesheets="@CSS/Style.css" text="Encadernação" />
             <Button mnemonicParsing="false" onAction="#CenaInsumo" styleClass="left-main-button" stylesheets="@CSS/Style.css" text="Insumos" />

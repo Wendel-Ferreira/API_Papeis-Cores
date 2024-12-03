@@ -25,7 +25,7 @@ public class ControllerMain implements Initializable {
     @FXML
     public void CenaPapelaria(ActionEvent event){
         try {
-        MainApplication.trocaCena("/templates/View/Estoque/AddPapelaria.fxml");
+        MainApplication.trocaCena("/templates/View/Estoque/Papelaria/MenuPapelaria.fxml");
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -34,7 +34,7 @@ public class ControllerMain implements Initializable {
     @FXML
     public void CenaEncadernacao(ActionEvent event){
         try {
-            MainApplication.trocaCena("/templates/View/Estoque/AddEncadernacao.fxml");
+            MainApplication.trocaCena("/templates/View/Estoque/Encadernacao/AddEncadernacao.fxml");
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -42,7 +42,7 @@ public class ControllerMain implements Initializable {
     @FXML
     public void CenaInsumo(ActionEvent event){
         try {
-            MainApplication.trocaCena("/templates/View/Estoque/AddInsumo.fxml");
+            MainApplication.trocaCena("/templates/View/Estoque/Insumo/AddInsumo.fxml");
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -72,6 +72,7 @@ public class ControllerMain implements Initializable {
             throw new RuntimeException(e);
         }
     }
+
 
     //CRIAR UM LABEL QUE MOSTRE O TOTAL DE ESTOQUE/CLIENTES DE CADA CATEGORIA (NA PAGINA INICIAL)
 }

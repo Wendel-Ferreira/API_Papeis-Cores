@@ -1,4 +1,4 @@
-package com.api.papeis.cores.API_Papeis.Cores.Controller.JavaFX.Historico;
+package com.api.papeis.cores.API_Papeis.Cores.Controller.JavaFX.Estoque.Insumo;
 
 import com.api.papeis.cores.API_Papeis.Cores.MainApplication;
 import javafx.event.ActionEvent;
@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 import org.springframework.stereotype.Controller;
 
 @Controller
-public class ControllerExtrato {
+public class ControllerAddInsumo {
 
     //Botão voltar
     @FXML

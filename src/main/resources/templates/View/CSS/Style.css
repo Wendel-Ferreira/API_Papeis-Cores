@@ -1,17 +1,23 @@
+.label-menu{
+     -fx-font-size: 30px;
+
+}
+
 /*Botões menu navegação esqueda */
 .left-main-button{
     -fx-font-size: 20px;
-    -fx-background-color: #EFEFC8;
-    -fx-text-fill: black;
+    -fx-text-fill: white;
     -fx-background-radius: 40px;
      -fx-padding: 10px 20px;
+     -fx-background-insets: 10px;
+     -fx-background-color: linear-gradient(to bottom, #5C7EDB, #8F97E1);
 }
 
 /* fundo VBox esquedo */
 .background-left-main{
-    -fx-background-color: #4BBDE9;
+    -fx-background-color: #093156;
 }
 /* fundo VBox direito */
 .background-right-main{
-    -fx-background-color: #C9F0CF;
+    -fx-background-color: #485F89;
 }
