@@ -12,12 +12,15 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.stereotype.Component;
 
 
 @SpringBootApplication
 @EntityScan(basePackages = "com.api.papeis.cores.API_Papeis.Cores.Model")
 @EnableJpaRepositories(basePackages = "com.api.papeis.cores.API_Papeis.Cores.Repository")
+@ComponentScan(basePackages = {"com.api.papeis.cores.API_Papeis.Cores.Controller"})
 public class MainApplication extends Application {
 
     @Getter

@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @Service
 public class ExtratoService {
-
+    @Autowired
     private JpaExtratoVendas jpaExtrato;
 
     public ExtratoVendas save(ExtratoVendas extratoVendas) {

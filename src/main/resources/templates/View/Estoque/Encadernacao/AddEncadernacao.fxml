@@ -1,14 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.api.papeis.cores.API_Papeis.Cores.Controller.JavaFX.Estoque.Encadernacao.ControllerAddEncadernacao"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.api.papeis.cores.API_Papeis.Cores.Controller.JavaFX.Estoque.Papelaria.ControllerAddPapelaria">
+   <children>
+      <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+         <children>
+            <Label text="Nome do Produto" />
+            <TextField />
+            <Label text="Quantidade no Estoque" />
+            <TextField />
+            <Label text="Preço do Pacote" />
+            <TextField />
+            <Label text="Quantidade em cada Pacote" />
+            <TextField />
+            <Label text="\% Lucro" />
+            <TextField />
+            <Label text="Margem" />
+            <TextField />
+            <Label text="Adicionar Insumos" />
+            <ChoiceBox prefWidth="150.0" />
+            <Button mnemonicParsing="false" text="Adicionar Produto" />
+            <Button mnemonicParsing="false" onAction="#cenaMenuPapelaria" text="Voltar" />
+         </children>
+      </VBox>
+      <VBox prefHeight="400.0" prefWidth="310.0" HBox.hgrow="ALWAYS">
+         <children>
+            <TableView prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+              <columns>
+                <TableColumn minWidth="20.0" prefWidth="198.0" text="Nome" />
+                <TableColumn minWidth="20.0" prefWidth="106.0" text="Qnt Estoque" />
+                  <TableColumn minWidth="20.0" prefWidth="100.0" text="Preço Total" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </children>
+</HBox>

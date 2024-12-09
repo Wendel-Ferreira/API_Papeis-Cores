@@ -2,6 +2,7 @@ package com.api.papeis.cores.API_Papeis.Cores.Model.Estoque;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class Insumo {
     private String nome;
 
     @Column(nullable = false)
-    private int qntEstoque;
+    private Integer qntEstoque;
 
     @Column(nullable = false)
     private Float precoPacote;

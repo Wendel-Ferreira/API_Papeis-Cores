@@ -2,6 +2,7 @@ package com.api.papeis.cores.API_Papeis.Cores.Service.Estoque;
 
 import com.api.papeis.cores.API_Papeis.Cores.Model.Estoque.Insumo;
 import com.api.papeis.cores.API_Papeis.Cores.Repository.Estoque.JpaInsumo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.Optional;
 
 @Service
 public class InsumoService {
+    @Autowired
     private JpaInsumo jpaInsumo;
 
     public Insumo save(Insumo insumo) {

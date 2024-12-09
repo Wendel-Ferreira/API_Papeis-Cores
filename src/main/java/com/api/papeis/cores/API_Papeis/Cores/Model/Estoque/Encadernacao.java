@@ -3,7 +3,6 @@ package com.api.papeis.cores.API_Papeis.Cores.Model.Estoque;
 import jakarta.persistence.*;
 import lombok.Getter;
 
-import java.util.List;
 
 @Entity
 @Getter
@@ -19,7 +18,7 @@ public class Encadernacao {
     private Float todosInsumos;
 
     @Column
-    private int qnt;
+    private Integer qnt;
 
     @Column
     private Float precoTotal; // Essa coluna vai ser o resultado do calculo do insumos e margem de lucro

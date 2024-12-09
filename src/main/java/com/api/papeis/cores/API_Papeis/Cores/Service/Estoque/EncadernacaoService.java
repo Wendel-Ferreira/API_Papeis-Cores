@@ -39,7 +39,7 @@ public class EncadernacaoService {
         return jpaProduto.save(produtos);
     }
 
-    public long count(Encadernacao encadernacao) {
+    public long count() {
         return jpaProduto.count();
     }
     //Criar uma função que faz o cliente procurar pelo nome e pegar o id desse produto e jogar no FindByID

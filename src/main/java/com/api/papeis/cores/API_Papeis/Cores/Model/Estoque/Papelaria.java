@@ -2,6 +2,7 @@ package com.api.papeis.cores.API_Papeis.Cores.Model.Estoque;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,7 @@ public class Papelaria {
     private String nome;
 
     @Column(nullable = false)
-    private int qnt;
+    private Integer qnt;
 
     @Column
     private Float precoTotal; // Essa coluna vai ser o resultado do calculo do insumos,Taxa(5%) % lucro , % margem
@@ -33,14 +34,29 @@ public class Papelaria {
     private Float valorUnitario;
 
     @Column
-    private Float Lucro; //Por porcentagem.
+    private Float lucro; //Por porcentagem.
 
     @Column
-    private int Margem;
+    private Integer margem;
 
     private Float taxa; // Criar o calculo e colocar nessa variavel
 
     public Papelaria() {
+    }
+
+    public Papelaria(String nome, Integer qntNoPacote, Float precoPacote, Integer qnt, Float lucro, Integer margem) {
+        this.nome = nome;
+        this.qntNoPacote = qntNoPacote;
+        this.precoPacote = precoPacote;
+        this.qnt = qnt;
+        this.lucro = lucro;
+        this.margem = margem;
+        soma();
+    }
+
+    public void soma(){
+        Float valor = precoPacote / qntNoPacote;
+        precoTotal = valor * qnt;
     }
 
     //Essa função preçoPAcote / qntNoPacote , = valorUnitario)
@@ -49,6 +65,21 @@ public class Papelaria {
 
     }
 
+    @Override
+    public String toString() {
+        return "Papelaria{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", qnt=" + qnt +
+                ", precoTotal=" + precoTotal +
+                ", precoPacote=" + precoPacote +
+                ", qntNoPacote=" + qntNoPacote +
+                ", valorUnitario=" + valorUnitario +
+                ", Lucro=" + lucro +
+                ", Margem=" + margem +
+                ", taxa=" + taxa +
+                '}';
+    }
     //Fazer o toString já formatando os preços com R$
 
     //Calculo (Taxa 5%) Deixar essa taxa fixa em uma variavel, 1º
