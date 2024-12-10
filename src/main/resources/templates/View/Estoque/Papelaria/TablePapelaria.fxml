@@ -5,24 +5,25 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
-      fx:controller="com.api.papeis.cores.API_Papeis.Cores.Controller.JavaFX.Estoque.Papelaria.ControllerTablePapelaria" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.api.papeis.cores.API_Papeis.Cores.Controller.JavaFX.Estoque.Papelaria.ControllerTablePapelaria">
    <children>
-      <VBox prefHeight="376.0" prefWidth="600.0">
+      <VBox prefHeight="376.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
          <children>
-            <TableView prefHeight="388.0" prefWidth="600.0" VBox.vgrow="ALWAYS" fx:id="tableView">
+            <TableView fx:id="tableView" prefHeight="388.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
               <columns>
-                <TableColumn prefWidth="75.0" text="Nome" fx:id="columnNome"/>
-                <TableColumn prefWidth="72.0" text="Preço Pacote" fx:id="columnPrecoPacote" />
-                  <TableColumn prefWidth="94.0" text="Qnt no Pacote" fx:id="columnQntNoPacote" />
-                  <TableColumn prefWidth="196.0" text="Valor Unitario" fx:id="columnValorUnitario" />
-                  <TableColumn prefWidth="85.0" text="Qnt Estoque" fx:id="columnQntEstoque"/>
-                  <TableColumn prefWidth="77.0" text="Valor Total" fx:id="columnTotalEstoque" />
+                <TableColumn fx:id="columnNome" minWidth="-1.0" prefWidth="334.0" text="Nome" />
+                <TableColumn fx:id="columnPrecoPacote" minWidth="-1.0" prefWidth="87.0" text="Preço Pacote" />
+                  <TableColumn fx:id="columnQntNoPacote" minWidth="-1.0" prefWidth="101.0" text="Qnt no Pacote" />
+                  <TableColumn fx:id="columnValorUnitario" minWidth="-1.0" prefWidth="92.0" text="Valor Unitario" />
+                  <TableColumn fx:id="columnQntEstoque" minWidth="-1.0" prefWidth="95.0" text="Qnt Estoque" />
+                  <TableColumn fx:id="columnTotalEstoque" minWidth="-1.0" prefWidth="90.0" text="Valor Total" />
               </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
             </TableView>
          </children>
       </VBox>
-      <Button contentDisplay="RIGHT" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="69.0" text="Voltar" textAlignment="CENTER" onAction="#cenaMenuPapelaria"/>
+      <Button contentDisplay="RIGHT" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#cenaMenuPapelaria" prefHeight="25.0" prefWidth="69.0" text="Voltar" textAlignment="CENTER" />
    </children>
 </VBox>

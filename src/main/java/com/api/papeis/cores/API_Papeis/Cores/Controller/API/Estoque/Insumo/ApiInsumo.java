@@ -9,18 +9,18 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(value = "/insumo")
+@RequestMapping(value = "/insumo/api")
 public class ApiInsumo {
     @Autowired
     private InsumoService insumoService;
 
-    @GetMapping
+    @GetMapping("/findAll")
     public List<Insumo> findAll(){return insumoService.findAll();}
 
-    @PostMapping
+    @PostMapping("/save")
     public Insumo save(@RequestBody Insumo insumo){return insumoService.save(insumo);}
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public void deleteById(@PathVariable Integer id){insumoService.deleteById(id); ;}
 
     @GetMapping("/count")

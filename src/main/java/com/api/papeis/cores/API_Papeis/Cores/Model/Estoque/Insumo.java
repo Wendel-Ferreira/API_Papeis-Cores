@@ -2,9 +2,7 @@ package com.api.papeis.cores.API_Papeis.Cores.Model.Estoque;
 
 import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.Setter;
 
-import java.util.List;
 
 @Entity
 @Getter
@@ -23,7 +21,7 @@ public class Insumo {
     @Column(nullable = false)
     private Float precoPacote;
 
-    @Column(nullable = false)
+    @Column(nullable = false) //Tirar nullable porém precisa apagar no banco de dados
     private Integer qntNoPacote;
 
     @Column

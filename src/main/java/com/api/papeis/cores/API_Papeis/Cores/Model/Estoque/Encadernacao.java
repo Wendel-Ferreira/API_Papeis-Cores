@@ -29,6 +29,8 @@ public class Encadernacao {
     @Column
     private int Margem;
 
+    private static final Double taxa = 0.05; //5% quando for utilizar fazer multiplicação
+
     public Encadernacao() {
     }
 

@@ -41,6 +41,8 @@ public class Papelaria {
 
     private Float taxa; // Criar o calculo e colocar nessa variavel
 
+    //perguntar se que uma coluna de descrição
+
     public Papelaria() {
     }
 

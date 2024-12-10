@@ -17,6 +17,7 @@ public class ApiPapelaria {
 
     @GetMapping("/findAll")
     public List<Papelaria> findAll(){return papelariaService.findAll();}
+
     @PostMapping("/save")
     public Papelaria save(@RequestBody Papelaria papelaria){
     return papelariaService.save(papelaria);}
@@ -29,4 +30,9 @@ public class ApiPapelaria {
 
     @GetMapping("/{id}")
     public Optional<Papelaria> findById(@PathVariable Integer id){return papelariaService.findById(id);}
+
+    @PutMapping("/update")
+    public Papelaria update(@RequestBody Papelaria papelaria){
+        return papelariaService.update(papelaria);
+    }
 }
