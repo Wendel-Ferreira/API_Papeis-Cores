@@ -46,6 +46,14 @@
                   <Font size="16.0" />
                </font>
             </Label>
+            <Label text="http://localhost:8080/swagger-ui/index.html" textFill="WHITE">
+               <font>
+                  <Font size="19.0" />
+               </font>
+               <padding>
+                  <Insets top="20.0" />
+               </padding>
+            </Label>
          </children></VBox>
    </children>
 </HBox>

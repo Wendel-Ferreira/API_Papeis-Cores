@@ -15,7 +15,7 @@ public class ApiPapelaria {
     @Autowired
     private PapelariaService papelariaService;
 
-    @GetMapping
+    @GetMapping("/findAll")
     public List<Papelaria> findAll(){return papelariaService.findAll();}
     @PostMapping("/save")
     public Papelaria save(@RequestBody Papelaria papelaria){

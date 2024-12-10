@@ -8,6 +8,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -15,14 +16,14 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 @Controller
-public class ControllerAddPapelaria {
+public class ControllerAddPapelaria implements Initializable {
 
-    public HttpAddPapelaria papelaria;
     //Tabela
     @FXML
     private TableView<Papelaria> tablePapelaria;
@@ -31,11 +32,11 @@ public class ControllerAddPapelaria {
 
     //Coluna
     @FXML
-    private TableColumn<Papelaria,String> columnNome;
+    private TableColumn<Papelaria, String> columnNome;
     @FXML
-    private TableColumn<Papelaria,Integer> columnQnt;
+    private TableColumn<Papelaria, Integer> columnQnt;
     @FXML
-    private TableColumn<Papelaria,Float> columnPrecoTotal;
+    private TableColumn<Papelaria, Float> columnPrecoTotal;
 
     //Caixa de Texto
     @FXML
@@ -62,7 +63,7 @@ public class ControllerAddPapelaria {
     private PapelariaService papelariaService;
 
     @FXML
-    public void cenaMenuPapelaria(ActionEvent event){
+    public void cenaMenuPapelaria(ActionEvent event) {
         try {
             MainApplication.trocaCena("/templates/View/Estoque/Papelaria/MenuPapelaria.fxml");
         } catch (Exception e) {
@@ -71,22 +72,22 @@ public class ControllerAddPapelaria {
     }
 
     @FXML
-    public void visualizarTabela(){
+    public void visualizarTabela() {
         columnNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
         columnQnt.setCellValueFactory(new PropertyValueFactory<>("qnt"));
         columnPrecoTotal.setCellValueFactory(new PropertyValueFactory<>("precoTotal"));
         carregartabela();
     }
 
-    private void carregartabela(){
+    private void carregartabela() {
         try {
-            ObservableList<Papelaria> observableList = FXCollections.observableArrayList(papelaria.findAll());
-
+            ObservableList<Papelaria> observableList = FXCollections.observableArrayList(apiPapelaria.findAll());
             tablePapelaria.setItems(observableList);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
+
     public void addPapelaria() throws IOException, InterruptedException {
         String nome = textFieldNome.getText();
         Integer qnt = Integer.parseInt(textFieldQntEstoque.getText());
@@ -95,7 +96,7 @@ public class ControllerAddPapelaria {
         Float lucro = Float.parseFloat(textFieldLucro.getText());
         Integer margem = Integer.parseInt(textFieldMargem.getText());
 
-        Papelaria novoProduto = new Papelaria(nome,qntPacote,precoPacote,qnt,lucro,margem);
+        Papelaria novoProduto = new Papelaria(nome, qntPacote, precoPacote, qnt, lucro, margem);
 
         apiPapelaria.savePapelaria(novoProduto);
 
@@ -106,7 +107,14 @@ public class ControllerAddPapelaria {
         textFieldQntEstoque.clear();
         textFieldPrecoPacote.clear();
     }
-  /*  public void addPapelaria() throws JsonProcessingException {
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        visualizarTabela();
+        carregartabela();
+    }
+  /*
+  public void addPapelaria() throws JsonProcessingException {
         String nome = textFieldNome.getText();
         Integer qnt = Integer.parseInt(textFieldQntEstoque.getText());
         Float precoPacote = Float.parseFloat(textFieldPrecoPacote.getText());
