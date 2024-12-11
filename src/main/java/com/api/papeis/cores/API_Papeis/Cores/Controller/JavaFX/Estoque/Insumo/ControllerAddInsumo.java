@@ -8,12 +8,11 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import lombok.SneakyThrows;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import java.net.URL;
@@ -22,7 +21,9 @@ import java.util.ResourceBundle;
 @Controller
 public class ControllerAddInsumo implements Initializable {
 
+    @Autowired
     private HttpInsumo httpInsumo;
+
     @FXML
     private TableView<Insumo> tableViewInsumo;
     @FXML
@@ -41,9 +42,6 @@ public class ControllerAddInsumo implements Initializable {
     @FXML
     private TextField textFieldQntNoPacote;
 
-    @FXML
-    private Button buttonAdd;
-
     //Botão voltar
     @FXML
     public void CenaMenuInsumo(ActionEvent event){
@@ -60,10 +58,32 @@ public class ControllerAddInsumo implements Initializable {
         columnValorUni.setCellValueFactory(new PropertyValueFactory<>("valorUnitario"));
         carregarTabela();
     }
+
     public void carregarTabela() {
         try {
             ObservableList<Insumo> observableList = FXCollections.observableArrayList(httpInsumo.httpFindAllInsumo()); //precisa criar o http
             tableViewInsumo.setItems(observableList);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    public void addInsumo(){
+        try {
+            String nome = textFieldNome.getText();
+            Integer qntEstoque = Integer.parseInt(textFieldQntNoEstoque.getText());
+            Float precoPacote = Float.parseFloat(textFieldPrecoPacote.getText());
+            Integer qntPacote = Integer.parseInt(textFieldQntNoPacote.getText());
+
+            Insumo novoInsumo = new Insumo(nome,qntEstoque,precoPacote,qntPacote);
+
+            httpInsumo.httpSaveInsumo(novoInsumo);
+            carregarColunas();
+            textFieldNome.clear();
+            textFieldQntNoEstoque.clear();
+            textFieldPrecoPacote.clear();
+            textFieldQntNoPacote.clear();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

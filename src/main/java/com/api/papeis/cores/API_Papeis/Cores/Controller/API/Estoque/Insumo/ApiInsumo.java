@@ -9,8 +9,9 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(value = "/insumo/api")
+@RequestMapping(value = "api/insumo")
 public class ApiInsumo {
+
     @Autowired
     private InsumoService insumoService;
 
@@ -28,4 +29,10 @@ public class ApiInsumo {
 
     @GetMapping("/{id}")
     public Optional<Insumo> findById(@PathVariable Integer id){return insumoService.FindById(id);}
+
+    @PutMapping("/update")
+    public Insumo update(@RequestBody Insumo insumo){
+        return insumoService.update(insumo);
+    }
+
 }

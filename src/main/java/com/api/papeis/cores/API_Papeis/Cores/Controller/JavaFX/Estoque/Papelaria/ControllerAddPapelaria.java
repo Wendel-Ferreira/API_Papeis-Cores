@@ -1,7 +1,10 @@
 package com.api.papeis.cores.API_Papeis.Cores.Controller.JavaFX.Estoque.Papelaria;
 
+import com.api.papeis.cores.API_Papeis.Cores.Controller.Http.Estoque.Insumo.HttpInsumo;
 import com.api.papeis.cores.API_Papeis.Cores.Controller.Http.Estoque.Papelaria.HttpAddPapelaria;
 import com.api.papeis.cores.API_Papeis.Cores.MainApplication;
+import com.api.papeis.cores.API_Papeis.Cores.Model.Estoque.Insumo;
+import com.api.papeis.cores.API_Papeis.Cores.Model.Estoque.InsumoSelecionado;
 import com.api.papeis.cores.API_Papeis.Cores.Model.Estoque.Papelaria;
 import com.api.papeis.cores.API_Papeis.Cores.Service.Estoque.PapelariaService;
 import javafx.collections.FXCollections;
@@ -9,10 +12,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,17 +26,17 @@ public class ControllerAddPapelaria implements Initializable {
 
     //Tabela
     @FXML
-    private TableView<Papelaria> tablePapelaria;
-
-    private ObservableList<Papelaria> observableListPapelaria;
+    private TableView<Insumo> tableViewInsumo;
 
     //Coluna
     @FXML
-    private TableColumn<Papelaria, String> columnNome;
+    private TableColumn<Insumo, String> columnNome;
     @FXML
-    private TableColumn<Papelaria, Integer> columnQnt;
+    private TableColumn<Insumo, Float> columnValorUni;
     @FXML
-    private TableColumn<Papelaria, Float> columnPrecoTotal;
+    private TableColumn<InsumoSelecionado,Boolean> checkBox;
+    @FXML
+    private TableColumn<InsumoSelecionado, Integer> columnQntEstoque;
 
     //Caixa de Texto
     @FXML
@@ -55,12 +55,10 @@ public class ControllerAddPapelaria implements Initializable {
     @FXML
     private Button buttonAdd;
 
-    //Service
     @Autowired
-    private HttpAddPapelaria apiPapelaria;
-
+    private HttpInsumo httpInsumo;
     @Autowired
-    private PapelariaService papelariaService;
+    private HttpAddPapelaria httpAddPapelaria;
 
     @FXML
     public void cenaMenuPapelaria(ActionEvent event) {
@@ -74,20 +72,21 @@ public class ControllerAddPapelaria implements Initializable {
     @FXML
     public void visualizarTabela() {
         columnNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
-        columnQnt.setCellValueFactory(new PropertyValueFactory<>("qnt"));
-        columnPrecoTotal.setCellValueFactory(new PropertyValueFactory<>("precoTotal"));
+        columnValorUni.setCellValueFactory(new PropertyValueFactory<>("valorTotalEstoque"));
+       //checkBox.setCellValueFactory(check -> {});
+        columnValorUni.setCellValueFactory(new PropertyValueFactory<>("valorTotalEstoque"));
         carregartabela();
     }
 
     private void carregartabela() {
         try {
-            ObservableList<Papelaria> observableList = FXCollections.observableArrayList(apiPapelaria.findAll());
-            tablePapelaria.setItems(observableList);
+            ObservableList<Insumo> observableList = FXCollections.observableArrayList(httpInsumo.httpFindAllInsumo());
+            tableViewInsumo.setItems(observableList);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
-
+    @FXML
     public void addPapelaria() throws IOException, InterruptedException {
         String nome = textFieldNome.getText();
         Integer qnt = Integer.parseInt(textFieldQntEstoque.getText());
@@ -98,8 +97,8 @@ public class ControllerAddPapelaria implements Initializable {
 
         Papelaria novoProduto = new Papelaria(nome, qntPacote, precoPacote, qnt, lucro, margem);
 
-        apiPapelaria.savePapelaria(novoProduto);
-
+        httpAddPapelaria.savePapelaria(novoProduto);
+        visualizarTabela();
         textFieldNome.clear();
         textFieldLucro.clear();
         textFieldMargem.clear();

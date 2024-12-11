@@ -8,29 +8,29 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="900.0"
-     fx:controller="com.api.papeis.cores.API_Papeis.Cores.Controller.JavaFX.Estoque.Insumo.ControllerAddInsumo" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.api.papeis.cores.API_Papeis.Cores.Controller.JavaFX.Estoque.Insumo.ControllerAddInsumo">
    <children>
       <VBox prefHeight="400.0" prefWidth="0.0" HBox.hgrow="ALWAYS">
          <children>
             <Label text="Nome" />
-            <TextField />
+            <TextField fx:id="textFieldNome" />
             <Label text="Quantidade Estoque" />
-            <TextField />
+            <TextField fx:id="textFieldQntNoEstoque" />
             <Label text="Preço Pacote" />
-            <TextField />
+            <TextField fx:id="textFieldPrecoPacote" />
             <Label text="Quantidade no Pacote" />
-            <TextField />
-            <Button mnemonicParsing="false" text="Adicionar" />
-            <Button mnemonicParsing="false" text="Voltar" onAction="#CenaMenuInsumo"/>
+            <TextField fx:id="textFieldQntNoPacote" />
+            <Button mnemonicParsing="false" onAction="#addInsumo" text="Adicionar" />
+            <Button mnemonicParsing="false" onAction="#CenaMenuInsumo" text="Voltar" />
          </children></VBox>
       <VBox prefHeight="400.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
          <children>
-            <TableView prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+            <TableView fx:id="tableViewInsumo" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
               <columns>
-                <TableColumn prefWidth="433.0" text="Nome" />
-                <TableColumn minWidth="0.0" prefWidth="104.0" text="Qnt Estoque" />
-                  <TableColumn prefWidth="56.0" text="Valor Un" />
+                <TableColumn fx:id="columnNome" prefWidth="366.0" text="Nome" />
+                <TableColumn fx:id="columnQntEstoque" minWidth="0.0" prefWidth="60.0" text="Box" />
+                  <TableColumn fx:id="columnValorUni1" prefWidth="162.0" text="Quatidade utilizar" />
+                  <TableColumn fx:id="columnValorUni" prefWidth="119.0" text="Valor Un" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

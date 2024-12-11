@@ -33,6 +33,13 @@ public class Insumo {
     public Insumo() {
     }
 
+    public Insumo(String nome, Integer qntEstoque, Float precoPacote, Integer qntNoPacote) {
+        this.nome = nome;
+        this.qntEstoque = qntEstoque;
+        this.precoPacote = precoPacote;
+        this.qntNoPacote = qntNoPacote;
+    }
+
     //Essa função vai ser adicionada no construtor
     public void divPacote(Float precoPacote , Float qntNoPacote){
         Float div = precoPacote / qntNoPacote;
