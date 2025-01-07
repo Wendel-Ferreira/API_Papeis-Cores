@@ -18,6 +18,8 @@ import org.springframework.stereotype.Controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 @Controller
@@ -26,6 +28,9 @@ public class ControllerAddPapelaria implements Initializable {
     //Tabela
     @FXML
     private TableView<InsumoSelecionado> tableViewInsumo;
+
+    //Testar o checkBox
+    private InsumoSelecionado insumoSelecionado;
 
     //Coluna
     @FXML
@@ -70,9 +75,10 @@ public class ControllerAddPapelaria implements Initializable {
 
     @FXML
     private void visualizarTabela() {
+
         // Configuração básica das colunas
         columnNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
-        columnValorUni.setCellValueFactory(new PropertyValueFactory<>("valorTotalEstoque"));
+        columnValorUni.setCellValueFactory(new PropertyValueFactory<>("valorUnitarioInsumo"));
 
         // Configuração da coluna de CheckBox
         checkBoxInsumo.setCellFactory(tc -> new TableCell<>() {
@@ -103,14 +109,14 @@ public class ControllerAddPapelaria implements Initializable {
             private final TextField textField = new TextField();
 
             {
-                textField.setOnAction(event -> {
+                textField.setOnKeyReleased(event -> {
                     InsumoSelecionado item = getTableView().getItems().get(getIndex());
                     try {
                         int value = Integer.parseInt(textField.getText());
-                        item.getQntUsada().set(value);
+                        item.setQntUsada(value);
                     } catch (NumberFormatException e) {
                         textField.setText("0");
-                        item.getQntUsada().set(0);
+                        item.setQntUsada(0);
                     }
                 });
             }
@@ -118,22 +124,17 @@ public class ControllerAddPapelaria implements Initializable {
             @Override
             protected void updateItem(Integer item, boolean empty) {
                 super.updateItem(item, empty);
-                if (empty) {
+                if (empty || item == null) {
                     setGraphic(null);
                 } else {
-                    textField.setText(item == null ? "0" : String.valueOf(item));
-                    setGraphic(textField);
+                    textField.setText(String.valueOf(item)); // Define o valor do TextField
+                    setGraphic(textField); // Exibe o TextField na célula
                 }
             }
         });
         columnQntEstoque.setCellValueFactory(data -> data.getValue().getQntUsada().asObject());
 
-        // Adicionar as colunas à tabela (apenas se forem adicionadas dinamicamente)
-        if (!tableViewInsumo.getColumns().contains(columnQntEstoque)) {
-            tableViewInsumo.getColumns().add(columnQntEstoque);
-        }
 
-        // Carregar os dados na tabela
         carregartabela();
     }
 
@@ -149,57 +150,50 @@ public class ControllerAddPapelaria implements Initializable {
         }
     }
 
-    /*
-@FXML
-public void visualizarTabela() {
-    // Configuração básica das colunas
-    columnNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
-    columnValorUni.setCellValueFactory(new PropertyValueFactory<>("valorTotalEstoque"));
-    columnQntEstoque.setCellValueFactory(new PropertyValueFactory<>("quantidadeEstoque"));
 
-    checkBoxInsumo.setCellFactory(tc -> new TableCell<InsumoSelecionado, Boolean>() {
-        private final CheckBox checkBox = new CheckBox();{
-            checkBox.setOnAction(event -> {
-                InsumoSelecionado insumoSelecionado = getTableView().getItems().get(getIndex());
-                insumoSelecionado.getBoxSelecionado().set(checkBox.isSelected());
-            });
+        @FXML
+        public void addPapelaria() throws IOException, InterruptedException {
+
+
+            List<InsumoSelecionado> insumosSelecionados = new ArrayList<>();
+
+
+            for (InsumoSelecionado insumo : tableViewInsumo.getItems()) {
+                if (insumo.getBoxSelecionado().get()) {
+                    try {
+                        int quantidadeUsada = insumo.getQntUsada().get();
+
+                        insumo.setQntUsada(quantidadeUsada);
+                        insumosSelecionados.add(insumo);
+                    } catch (NumberFormatException e) {
+                        System.err.println("Erro ao converter valor do TextField: " + e.getMessage());
+                    }
+                }
+            }
+
+            String nome = textFieldNome.getText();
+            Integer qntEstoque = Integer.parseInt(textFieldQntEstoque.getText());
+            Float precoPacote = Float.parseFloat(textFieldPrecoPacote.getText());
+            Integer qntCadaPacote = Integer.parseInt(textFieldQntPacote.getText());
+            Float lucro = Float.parseFloat(textFieldLucro.getText());
+            Integer margem = Integer.parseInt(textFieldMargem.getText());
+
+            Papelaria papelaria = new Papelaria(nome,qntEstoque,precoPacote,qntCadaPacote,lucro,margem);
+
+            httpAddPapelaria.savePapelaria(papelaria);
+
+            textFieldNome.clear();
+            textFieldQntEstoque.clear();
+            textFieldPrecoPacote.clear();
+            textFieldQntPacote.clear();
+            textFieldLucro.clear();
+            textFieldMargem.clear();
+            // Para fins de teste, exibe os dados coletados
+            for (InsumoSelecionado selecionado : insumosSelecionados) {
+                System.out.println("Nome: " + selecionado.getNome());
+                System.out.println("Valor total do insumo: " + selecionado.getValorTotal());
+            }
         }
-    }
-    );
-}
-
-private void carregartabela() {
-    try {
-        ObservableList<Insumo> observableList = FXCollections.observableArrayList(httpInsumo.httpFindAllInsumo());
-        tableViewInsumo.setItems(observableList);
-    } catch (Exception e) {
-        throw new RuntimeException(e);
-    }
-}
-
-
-@FXML
-public void addPapelaria() throws IOException, InterruptedException {
-    String nome = textFieldNome.getText();
-    Integer qnt = Integer.parseInt(textFieldQntEstoque.getText());
-    Float precoPacote = Float.parseFloat(textFieldPrecoPacote.getText());
-    Integer qntPacote = Integer.parseInt(textFieldQntPacote.getText());
-    Float lucro = Float.parseFloat(textFieldLucro.getText());
-    Integer margem = Integer.parseInt(textFieldMargem.getText());
-
-    Papelaria novoProduto = new Papelaria(nome, qntPacote, precoPacote, qnt, lucro, margem);
-
-    visualizarTabela();
-    textFieldNome.clear();
-    textFieldLucro.clear();
-    textFieldMargem.clear();
-    textFieldQntPacote.clear();
-    textFieldQntEstoque.clear();
-    textFieldPrecoPacote.clear();
-}
-
-
- */
 public void initialize(URL url, ResourceBundle resourceBundle) {
     visualizarTabela();
     carregartabela();

@@ -38,18 +38,16 @@ public class Insumo {
         this.qntEstoque = qntEstoque;
         this.precoPacote = precoPacote;
         this.qntNoPacote = qntNoPacote;
+        this.valorUnitario = divPacote();
+        this.valorTotalEstoque = somaEstoque();
     }
 
-    //Essa função vai ser adicionada no construtor
-    public void divPacote(Float precoPacote , Float qntNoPacote){
-        Float div = precoPacote / qntNoPacote;
-        valorUnitario = div;
+    public Float divPacote(){
+        return precoPacote / qntNoPacote;
     }
 
-    //Essa função vai ser adicionada no construtor
-    public void somaEstoque(int qntEstoque,Float precoPacote){
-        valorTotalEstoque = qntEstoque * precoPacote;
+    public Float somaEstoque(){
+        return qntEstoque * precoPacote;
     }
 
-    //Fazer o toString já formatando os preços com R$
 }

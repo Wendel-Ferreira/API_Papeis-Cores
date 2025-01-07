@@ -39,11 +39,14 @@ public class Papelaria {
     @Column
     private Integer margem;
 
-    private Float taxa; // Criar o calculo e colocar nessa variavel
+    private static final Float taxa = 0.05f ; // Criar o calculo e colocar nessa variavel
+
+
 
     //perguntar se que uma coluna de descrição
 
-    public Papelaria() {
+    public Papelaria(){
+
     }
 
     public Papelaria(String nome, Integer qntNoPacote, Float precoPacote, Integer qnt, Float lucro, Integer margem) {
@@ -67,24 +70,7 @@ public class Papelaria {
 
     }
 
-    @Override
-    public String toString() {
-        return "Papelaria{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", qnt=" + qnt +
-                ", precoTotal=" + precoTotal +
-                ", precoPacote=" + precoPacote +
-                ", qntNoPacote=" + qntNoPacote +
-                ", valorUnitario=" + valorUnitario +
-                ", Lucro=" + lucro +
-                ", Margem=" + margem +
-                ", taxa=" + taxa +
-                '}';
-    }
-    //Fazer o toString já formatando os preços com R$
-
-    //Calculo (Taxa 5%) Deixar essa taxa fixa em uma variavel, 1º
-    // + (% Lucro) Tentar visualizar como String e com %, 2º
+    // + (% Lucro) Tentar visualizar como String e com %, 1º
+    //Calculo (Taxa 5%) Deixar essa taxa fixa em uma variavel, 2º
     // + (% Margem) Tentar visualizar como String e com %, 3º
 }

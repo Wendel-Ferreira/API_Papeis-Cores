@@ -27,9 +27,8 @@
          <children>
             <TableView fx:id="tableViewInsumo" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
               <columns>
-                <TableColumn fx:id="columnNome" prefWidth="366.0" text="Nome" />
-                <TableColumn fx:id="columnQntEstoque" minWidth="0.0" prefWidth="60.0" text="Box" />
-                  <TableColumn fx:id="columnValorUni1" prefWidth="162.0" text="Quatidade utilizar" />
+                <TableColumn fx:id="columnNome" prefWidth="449.0" text="Nome" />
+                  <TableColumn fx:id="columnQntEstoque" prefWidth="99.0" text="Qnt Estoque" />
                   <TableColumn fx:id="columnValorUni" prefWidth="119.0" text="Valor Un" />
               </columns>
                <columnResizePolicy>

@@ -24,7 +24,7 @@
             <TextField fx:id="textFieldLucro" />
             <Label text="Margem" />
             <TextField fx:id="textFieldMargem" />
-            <Button mnemonicParsing="false" onAction="#visualizarTabela" text="Adicionar Produto" />
+            <Button mnemonicParsing="false" onAction="#addPapelaria" text="Adicionar Produto" />
           <Button mnemonicParsing="false" onAction="#cenaMenuPapelaria" text="Voltar" />
          </children>
       </VBox>
