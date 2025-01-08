@@ -2,10 +2,9 @@ package com.api.papeis.cores.API_Papeis.Cores.Model.Estoque;
 
 import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.Setter;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 @Entity
 @Getter
@@ -19,57 +18,54 @@ public class Papelaria {
     private String nome;
 
     @Column(nullable = false)
-    private Integer qnt;
+    private Integer qntEstoque;
 
-    @Column
-    private Float precoTotal; // Essa coluna vai ser o resultado do calculo do insumos,Taxa(5%) % lucro , % margem
+    @Column(precision = 10 , scale = 2)
+    private BigDecimal precoTotal; // Essa coluna vai ser o resultado do calculo do insumos,Taxa(5%) % lucro , % margem
 
     @Column(nullable = false)
-    private Float precoPacote;
+    private Double precoPacote;
 
     @Column(nullable = false)
     private Integer qntNoPacote;
 
     @Column
-    private Float valorUnitario;
+    private Double valorUnitario;
 
     @Column
-    private Float lucro; //Por porcentagem.
+    private Double lucro; //Por porcentagem.
 
     @Column
     private Integer margem;
 
+    @Column
+    private Double valorInsumos;
+
     private static final Float taxa = 0.05f ; // Criar o calculo e colocar nessa variavel
-
-
-
-    //perguntar se que uma coluna de descrição
 
     public Papelaria(){
 
     }
 
-    public Papelaria(String nome, Integer qntNoPacote, Float precoPacote, Integer qnt, Float lucro, Integer margem) {
+    public Papelaria(String nome, Integer qntNoPacote, Double precoPacote, Integer qntEstoque, Double lucro, Integer margem, Double valorInsumos) {
         this.nome = nome;
         this.qntNoPacote = qntNoPacote;
         this.precoPacote = precoPacote;
-        this.qnt = qnt;
-        this.lucro = lucro;
-        this.margem = margem;
-        soma();
+        this.qntEstoque = qntEstoque;
+        this.lucro = lucro / 100;
+        this.margem = margem / 100;
+        this.valorInsumos = valorInsumos;
+        this.valorUnitario = precoPacote / qntNoPacote;
+        this.precoTotal = soma();
     }
 
-    public void soma(){
-        Float valor = precoPacote / qntNoPacote;
-        precoTotal = valor * qnt;
+    public BigDecimal soma() {
+        return BigDecimal.valueOf(valorInsumos)
+                .divide(BigDecimal.valueOf(1 - (margem + lucro + taxa)), 2, RoundingMode.HALF_UP);
     }
 
-    //Essa função preçoPAcote / qntNoPacote , = valorUnitario)
-    public void divPacote(Float precoPacote , Float qntNoPacote){
-        Float div = precoPacote / qntNoPacote;
 
-    }
-
+    //atributo precoTotal = Insumo +
     // + (% Lucro) Tentar visualizar como String e com %, 1º
     //Calculo (Taxa 5%) Deixar essa taxa fixa em uma variavel, 2º
     // + (% Margem) Tentar visualizar como String e com %, 3º

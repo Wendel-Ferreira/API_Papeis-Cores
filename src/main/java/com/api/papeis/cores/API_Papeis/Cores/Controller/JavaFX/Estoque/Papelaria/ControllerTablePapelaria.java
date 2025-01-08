@@ -36,9 +36,11 @@ public class ControllerTablePapelaria implements Initializable {
     @FXML
     private TableColumn<Papelaria, Integer> columnQntNoPacote;
     @FXML
-    private TableColumn<Papelaria, Float> columnValorUnitario;
+    private TableColumn<Papelaria, Double> columnValorUnitario;
     @FXML
-    private TableColumn<Papelaria, Float> columnTotalEstoque;
+    private TableColumn<Papelaria, Double> columnTotalEstoque;
+    @FXML
+    private TableColumn<Papelaria, Double> columnValorInsumos;
 
     //Botão voltar
     @FXML
@@ -56,8 +58,8 @@ public class ControllerTablePapelaria implements Initializable {
             columnPrecoPacote.setCellValueFactory(new PropertyValueFactory<>("precoPacote"));
             columnQntNoPacote.setCellValueFactory(new PropertyValueFactory<>("qntNoPacote"));
             columnValorUnitario.setCellValueFactory(new PropertyValueFactory<>("valorUnitario"));
-            columnTotalEstoque.setCellValueFactory(new PropertyValueFactory<>("valorTotalEstoque"));
-
+            columnTotalEstoque.setCellValueFactory(new PropertyValueFactory<>("precoTotal"));
+            columnValorInsumos.setCellValueFactory(new PropertyValueFactory<>("valorInsumos"));
             carregarTabela();
     }
 

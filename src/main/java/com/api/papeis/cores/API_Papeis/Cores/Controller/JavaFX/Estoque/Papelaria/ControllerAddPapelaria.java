@@ -36,7 +36,7 @@ public class ControllerAddPapelaria implements Initializable {
     @FXML
     private TableColumn<InsumoSelecionado, String> columnNome;
     @FXML
-    private TableColumn<InsumoSelecionado, Float> columnValorUni;
+    private TableColumn<InsumoSelecionado, Double> columnValorUni;
     @FXML
     private TableColumn<InsumoSelecionado, Boolean> checkBoxInsumo;
     @FXML
@@ -173,12 +173,20 @@ public class ControllerAddPapelaria implements Initializable {
 
             String nome = textFieldNome.getText();
             Integer qntEstoque = Integer.parseInt(textFieldQntEstoque.getText());
-            Float precoPacote = Float.parseFloat(textFieldPrecoPacote.getText());
+            Double precoPacote = Double.parseDouble(textFieldPrecoPacote.getText());
             Integer qntCadaPacote = Integer.parseInt(textFieldQntPacote.getText());
-            Float lucro = Float.parseFloat(textFieldLucro.getText());
+            Double lucro = Double.parseDouble(textFieldLucro.getText());
             Integer margem = Integer.parseInt(textFieldMargem.getText());
 
-            Papelaria papelaria = new Papelaria(nome,qntEstoque,precoPacote,qntCadaPacote,lucro,margem);
+
+            // CHATGPT COMO EU CONSIGO SOMAR O valorTotal e passa como parametro na classe papelaria?
+            Double totalInsumo = 0d;
+            for (InsumoSelecionado selecionado : insumosSelecionados) {
+                totalInsumo += selecionado.getValorTotal();
+            }
+
+            System.out.println("Valor total insumo" + totalInsumo);
+            Papelaria papelaria = new Papelaria(nome,qntEstoque,precoPacote,qntCadaPacote,lucro,margem,totalInsumo);
 
             httpAddPapelaria.savePapelaria(papelaria);
 

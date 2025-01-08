@@ -15,19 +15,21 @@ public class Encadernacao {
     @Column(nullable = false)
     private String nome;
 
-    private Float todosInsumos;
-
     @Column
     private Integer qnt;
-
+    //MUDAR FLOAT PARA DOUBLE E RESETAR BD
     @Column
     private Float precoTotal; // Essa coluna vai ser o resultado do calculo do insumos e margem de lucro
 
+    //MUDAR FLOAT PARA DOUBLE E RESETAR BD
     @Column
     private Float Lucro; //Por porcentagem.
 
     @Column
     private int Margem;
+
+    @Column
+    private Double valorInsumo;
 
     private static final Double taxa = 0.05; //5% quando for utilizar fazer multiplicação
 

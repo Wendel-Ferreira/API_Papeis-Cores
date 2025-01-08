@@ -17,6 +17,7 @@
                   <TableColumn fx:id="columnValorUnitario" minWidth="-1.0" prefWidth="92.0" text="Valor Unitario" />
                   <TableColumn fx:id="columnQntEstoque" minWidth="-1.0" prefWidth="95.0" text="Qnt Estoque" />
                   <TableColumn fx:id="columnTotalEstoque" minWidth="-1.0" prefWidth="90.0" text="Valor Total" />
+                  <TableColumn fx:id="columnValorInsumos" minWidth="-1.0" prefWidth="90.0" text="Valor Insumos" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
