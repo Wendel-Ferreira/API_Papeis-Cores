@@ -176,7 +176,7 @@ public class ControllerAddPapelaria implements Initializable {
             Double precoPacote = Double.parseDouble(textFieldPrecoPacote.getText());
             Integer qntCadaPacote = Integer.parseInt(textFieldQntPacote.getText());
             Double lucro = Double.parseDouble(textFieldLucro.getText());
-            Integer margem = Integer.parseInt(textFieldMargem.getText());
+            Double margem = Double.parseDouble(textFieldMargem.getText());
 
 
             // CHATGPT COMO EU CONSIGO SOMAR O valorTotal e passa como parametro na classe papelaria?

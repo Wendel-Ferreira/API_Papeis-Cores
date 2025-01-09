@@ -36,7 +36,7 @@ public class Papelaria {
     private Double lucro; //Por porcentagem.
 
     @Column
-    private Integer margem;
+    private Double margem;
 
     @Column
     private Double valorInsumos;
@@ -47,26 +47,23 @@ public class Papelaria {
 
     }
 
-    public Papelaria(String nome, Integer qntNoPacote, Double precoPacote, Integer qntEstoque, Double lucro, Integer margem, Double valorInsumos) {
+    public Papelaria(String nome, Integer qntNoPacote, Double precoPacote, Integer qntEstoque, Double lucro, Double margem, Double valorInsumos) {
         this.nome = nome;
         this.qntNoPacote = qntNoPacote;
         this.precoPacote = precoPacote;
         this.qntEstoque = qntEstoque;
-        this.lucro = lucro / 100;
-        this.margem = margem / 100;
+        this.lucro = lucro / 100d;
+        this.margem = margem / 100d;
         this.valorInsumos = valorInsumos;
         this.valorUnitario = precoPacote / qntNoPacote;
         this.precoTotal = soma();
     }
 
     public BigDecimal soma() {
-        return BigDecimal.valueOf(valorInsumos)
-                .divide(BigDecimal.valueOf(1 - (margem + lucro + taxa)), 2, RoundingMode.HALF_UP);
+        Double tomate = margem + lucro + taxa;
+        Double batata = valorUnitario + valorInsumos;
+        return BigDecimal.valueOf(batata)
+                .divide(BigDecimal.valueOf(1 - (tomate)), 2);
     }
 
-
-    //atributo precoTotal = Insumo +
-    // + (% Lucro) Tentar visualizar como String e com %, 1º
-    //Calculo (Taxa 5%) Deixar essa taxa fixa em uma variavel, 2º
-    // + (% Margem) Tentar visualizar como String e com %, 3º
 }

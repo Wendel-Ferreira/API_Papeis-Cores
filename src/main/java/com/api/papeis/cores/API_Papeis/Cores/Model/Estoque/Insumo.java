@@ -15,13 +15,13 @@ public class Insumo {
     @Column(nullable = false)
     private String nome;
 
-    @Column(nullable = false)
+    @Column(nullable = false) //tirar nullable porém precisa apagar no banco de dados
     private Integer qntEstoque;
 
     @Column(nullable = false)
     private Float precoPacote;
 
-    @Column(nullable = false) //Tirar nullable porém precisa apagar no banco de dados
+    @Column(nullable = false)
     private Integer qntNoPacote;
 
     @Column
