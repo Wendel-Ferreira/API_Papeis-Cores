@@ -52,18 +52,18 @@ public class Papelaria {
         this.qntNoPacote = qntNoPacote;
         this.precoPacote = precoPacote;
         this.qntEstoque = qntEstoque;
-        this.lucro = lucro / 100d;
-        this.margem = margem / 100d;
+        this.lucro = lucro ;
+        this.margem = margem ;
         this.valorInsumos = valorInsumos;
         this.valorUnitario = precoPacote / qntNoPacote;
         this.precoTotal = soma();
     }
 
     public BigDecimal soma() {
-        Double tomate = margem + lucro + taxa;
+        Double tomate = (getMargem() /100) + (getLucro() / 100) + taxa;
         Double batata = valorUnitario + valorInsumos;
         return BigDecimal.valueOf(batata)
-                .divide(BigDecimal.valueOf(1 - (tomate)), 2);
+                .divide(BigDecimal.valueOf((1 - tomate)),2);
     }
 
 }

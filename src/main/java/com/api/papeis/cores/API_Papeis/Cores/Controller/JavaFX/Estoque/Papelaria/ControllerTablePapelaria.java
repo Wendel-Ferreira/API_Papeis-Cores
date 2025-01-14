@@ -1,10 +1,8 @@
 package com.api.papeis.cores.API_Papeis.Cores.Controller.JavaFX.Estoque.Papelaria;
 
-import com.api.papeis.cores.API_Papeis.Cores.Controller.API.Estoque.Papelaria.ApiPapelaria;
 import com.api.papeis.cores.API_Papeis.Cores.Controller.Http.Estoque.Papelaria.HttpAddPapelaria;
 import com.api.papeis.cores.API_Papeis.Cores.MainApplication;
 import com.api.papeis.cores.API_Papeis.Cores.Model.Estoque.Papelaria;
-import jakarta.persistence.Column;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -28,7 +26,7 @@ public class ControllerTablePapelaria implements Initializable {
     @FXML
     private TableView<Papelaria> tableView;
     @FXML
-    private TableColumn<Papelaria, String> columnNome;
+    private TableColumn<Papelaria,String> columnNome;
     @FXML
     private TableColumn<Papelaria, Integer> columnQntEstoque;
     @FXML
@@ -41,6 +39,10 @@ public class ControllerTablePapelaria implements Initializable {
     private TableColumn<Papelaria, Double> columnTotalEstoque;
     @FXML
     private TableColumn<Papelaria, Double> columnValorInsumos;
+    @FXML
+    private TableColumn <Papelaria,Double> columnLucro;
+    @FXML
+    private TableColumn<Papelaria, Double> columnMargem;
 
     //Botão voltar
     @FXML
@@ -60,6 +62,8 @@ public class ControllerTablePapelaria implements Initializable {
             columnValorUnitario.setCellValueFactory(new PropertyValueFactory<>("valorUnitario"));
             columnTotalEstoque.setCellValueFactory(new PropertyValueFactory<>("precoTotal"));
             columnValorInsumos.setCellValueFactory(new PropertyValueFactory<>("valorInsumos"));
+            columnLucro.setCellValueFactory(new PropertyValueFactory<>("lucro"));
+            columnMargem.setCellValueFactory(new PropertyValueFactory<>("margem"));
             carregarTabela();
     }
 

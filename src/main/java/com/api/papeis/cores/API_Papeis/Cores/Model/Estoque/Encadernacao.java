@@ -3,6 +3,8 @@ package com.api.papeis.cores.API_Papeis.Cores.Model.Estoque;
 import jakarta.persistence.*;
 import lombok.Getter;
 
+import java.math.BigDecimal;
+
 
 @Entity
 @Getter
@@ -16,17 +18,16 @@ public class Encadernacao {
     private String nome;
 
     @Column
-    private Integer qnt;
-    //MUDAR FLOAT PARA DOUBLE E RESETAR BD
-    @Column
-    private Float precoTotal; // Essa coluna vai ser o resultado do calculo do insumos e margem de lucro
+    private Integer qntEstoque;
 
-    //MUDAR FLOAT PARA DOUBLE E RESETAR BD
-    @Column
-    private Float Lucro; //Por porcentagem.
+    @Column(precision = 10 , scale = 2)
+    private BigDecimal precoTotal; // Essa coluna vai ser o resultado do calculo do insumos e margem de lucro
 
     @Column
-    private int Margem;
+    private Double lucro; //Por porcentagem.
+
+    @Column
+    private Double margem;
 
     @Column
     private Double valorInsumo;
@@ -36,7 +37,20 @@ public class Encadernacao {
     public Encadernacao() {
     }
 
-    //Fazer o toString já formatando os preços com R$
+    public Encadernacao(String nome, Integer qntEstoque, Double lucro, Double margem, Double valorInsumo) {
+        this.nome = nome;
+        this.qntEstoque = qntEstoque;
+        this.lucro = lucro ;
+        this.margem = margem;
+        this.valorInsumo = valorInsumo;
+        this.precoTotal = soma();
+    }
+    public BigDecimal soma(){
+        Double porcentagem = (getLucro()/100) + (getMargem()/100) + taxa;
+
+        return BigDecimal.valueOf(getValorInsumo())
+                .divide(BigDecimal.valueOf((1 - porcentagem)));
+    }
 
     //Calculo (Taxa 5%) Deixar essa taxa fixa em uma variavel
     // + (% Lucro) Tentar visualizar como String e com %

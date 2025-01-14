@@ -9,21 +9,21 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(value = "/api/add/encadernacao")
+@RequestMapping(value = "/api/encadernacao")
 public class ApiEncadernacao {
 
     @Autowired
     private EncadernacaoService produtoService;
 
-    @GetMapping
-    public List<Encadernacao> findiAll() {
+    @GetMapping("/findAll")
+    public List<Encadernacao> findAll() {
         return produtoService.findAll();
     }
-    @PutMapping
+    @PutMapping("/update")
     public Encadernacao update(@RequestBody Encadernacao encadernacao) {
         return produtoService.update(encadernacao);
     }
-    @PostMapping
+    @PostMapping("/save")
     public Encadernacao save(@RequestBody Encadernacao produtos) { return produtoService.save(produtos);}
 
     @DeleteMapping("/{id}")

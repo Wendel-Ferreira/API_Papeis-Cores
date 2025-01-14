@@ -7,11 +7,11 @@ import org.springframework.stereotype.Controller;
 
 @Controller
 public class ControllerAddEncadernacao {
-    //Botão voltar
+
     @FXML
     public void CenaInicial(ActionEvent event){
         try {
-            MainApplication.trocaCena("/templates/View/PaginaInicial.fxml");
+            MainApplication.trocaCena("/templates/View/MenuEncadernacao.fxml");
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

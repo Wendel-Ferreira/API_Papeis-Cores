@@ -41,6 +41,5 @@ public class HttpInsumo {
                 .build();
 
         HttpResponse<String> response = client.send(request,HttpResponse.BodyHandlers.ofString());
-
     }
 }
