@@ -15,7 +15,7 @@ public class Insumo {
     @Column(nullable = false)
     private String nome;
 
-    @Column(nullable = false) //tirar nullable porém precisa apagar no banco de dados
+    @Column
     private Integer qntEstoque;
 
     @Column(nullable = false)

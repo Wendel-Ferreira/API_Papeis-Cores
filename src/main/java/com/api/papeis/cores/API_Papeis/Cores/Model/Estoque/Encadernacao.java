@@ -52,8 +52,4 @@ public class Encadernacao {
                 .divide(BigDecimal.valueOf((1 - porcentagem)));
     }
 
-    //Calculo (Taxa 5%) Deixar essa taxa fixa em uma variavel
-    // + (% Lucro) Tentar visualizar como String e com %
-    // + (% Margem) Tentar visualizar como String e com %
-
 }

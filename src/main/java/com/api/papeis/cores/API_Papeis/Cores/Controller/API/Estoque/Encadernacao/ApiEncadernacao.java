@@ -9,14 +9,14 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(value = "/api/encadernacao")
+@RequestMapping(value = "api/encadernacao")
 public class ApiEncadernacao {
 
     @Autowired
     private EncadernacaoService produtoService;
 
     @GetMapping("/findAll")
-    public List<Encadernacao> findAll() {
+    public List<Encadernacao> findAll(){
         return produtoService.findAll();
     }
     @PutMapping("/update")

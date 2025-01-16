@@ -26,7 +26,7 @@ public class HttpEncadernacao {
                     .GET().build();
 
             HttpResponse<String> response = client.send(request,HttpResponse.BodyHandlers.ofString());
-            ObjectMapper mapper= new ObjectMapper();
+            ObjectMapper mapper = new ObjectMapper();
             return mapper.readValue(response.body(), new TypeReference<List<Encadernacao>>() {
             });
 
