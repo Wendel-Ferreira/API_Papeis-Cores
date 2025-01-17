@@ -2,7 +2,7 @@ package com.api.papeis.cores.API_Papeis.Cores.Controller.JavaFX.Estoque.Encadern
 
 import com.api.papeis.cores.API_Papeis.Cores.Controller.Http.Estoque.Encadernacao.HttpEncadernacao;
 import com.api.papeis.cores.API_Papeis.Cores.MainApplication;
-import com.api.papeis.cores.API_Papeis.Cores.Model.Estoque.Encadernacao;
+import com.api.papeis.cores.API_Papeis.Cores.Model.Estoque.Encadernacao.Encadernacao;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

@@ -1,7 +1,7 @@
 
 package com.api.papeis.cores.API_Papeis.Cores.Service.Estoque;
 
-import com.api.papeis.cores.API_Papeis.Cores.Model.Estoque.Encadernacao;
+import com.api.papeis.cores.API_Papeis.Cores.Model.Estoque.Encadernacao.Encadernacao;
 import com.api.papeis.cores.API_Papeis.Cores.Repository.Estoque.JpaEncadernacao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

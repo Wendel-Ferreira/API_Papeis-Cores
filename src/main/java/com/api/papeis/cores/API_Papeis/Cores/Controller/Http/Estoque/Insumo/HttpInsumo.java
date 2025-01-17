@@ -1,6 +1,6 @@
 package com.api.papeis.cores.API_Papeis.Cores.Controller.Http.Estoque.Insumo;
 
-import com.api.papeis.cores.API_Papeis.Cores.Model.Estoque.Insumo;
+import com.api.papeis.cores.API_Papeis.Cores.Model.Estoque.Insumo.Insumo;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Component;

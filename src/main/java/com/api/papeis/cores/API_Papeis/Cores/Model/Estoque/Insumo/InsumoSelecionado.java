@@ -1,4 +1,4 @@
-package com.api.papeis.cores.API_Papeis.Cores.Model.Estoque;
+package com.api.papeis.cores.API_Papeis.Cores.Model.Estoque.Insumo;
 
 import javafx.beans.property.*;
 import lombok.Getter;
@@ -8,7 +8,7 @@ import lombok.Setter;
 @Setter
 public class InsumoSelecionado {
     private String nome; // Vem do insumo selecionado
-    private Float valorUnitarioInsumo; // Vem do insumo selecionado
+    private Double valorUnitarioInsumo; // Vem do insumo selecionado
 
     private double valorTotal;
 

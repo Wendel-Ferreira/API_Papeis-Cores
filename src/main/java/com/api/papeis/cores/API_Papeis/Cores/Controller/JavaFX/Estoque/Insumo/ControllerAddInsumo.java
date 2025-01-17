@@ -2,7 +2,7 @@ package com.api.papeis.cores.API_Papeis.Cores.Controller.JavaFX.Estoque.Insumo;
 
 import com.api.papeis.cores.API_Papeis.Cores.Controller.Http.Estoque.Insumo.HttpInsumo;
 import com.api.papeis.cores.API_Papeis.Cores.MainApplication;
-import com.api.papeis.cores.API_Papeis.Cores.Model.Estoque.Insumo;
+import com.api.papeis.cores.API_Papeis.Cores.Model.Estoque.Insumo.Insumo;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -73,7 +73,7 @@ public class ControllerAddInsumo implements Initializable {
         try {
             String nome = textFieldNome.getText();
             Integer qntEstoque = Integer.parseInt(textFieldQntNoEstoque.getText());
-            Float precoPacote = Float.parseFloat(textFieldPrecoPacote.getText());
+            Double precoPacote = Double.parseDouble(textFieldPrecoPacote.getText());
             Integer qntPacote = Integer.parseInt(textFieldQntNoPacote.getText());
 
             Insumo novoInsumo = new Insumo(nome,qntEstoque,precoPacote,qntPacote);

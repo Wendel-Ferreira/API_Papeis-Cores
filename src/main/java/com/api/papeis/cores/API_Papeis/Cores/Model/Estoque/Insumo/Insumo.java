@@ -1,7 +1,9 @@
-package com.api.papeis.cores.API_Papeis.Cores.Model.Estoque;
+package com.api.papeis.cores.API_Papeis.Cores.Model.Estoque.Insumo;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+
+import java.math.BigDecimal;
 
 
 @Entity
@@ -19,21 +21,21 @@ public class Insumo {
     private Integer qntEstoque;
 
     @Column(nullable = false)
-    private Float precoPacote;
+    private Double precoPacote;
 
     @Column(nullable = false)
     private Integer qntNoPacote;
 
     @Column
-    private Float valorUnitario;
+    private Double valorUnitario;
 
     @Column
-    private Float valorTotalEstoque;
+    private Double valorTotalEstoque;
 
     public Insumo() {
     }
 
-    public Insumo(String nome, Integer qntEstoque, Float precoPacote, Integer qntNoPacote) {
+    public Insumo(String nome, Integer qntEstoque, Double precoPacote, Integer qntNoPacote) {
         this.nome = nome;
         this.qntEstoque = qntEstoque;
         this.precoPacote = precoPacote;
@@ -42,12 +44,13 @@ public class Insumo {
         this.valorTotalEstoque = somaEstoque();
     }
 
-    public Float divPacote(){
-        return precoPacote / qntNoPacote;
+    public Double divPacote(){
+        BigDecimal bigDecimal = new BigDecimal(precoPacote / qntNoPacote).setScale(2);
+        return bigDecimal.doubleValue();
     }
 
-    public Float somaEstoque(){
-        return qntEstoque * precoPacote;
+    public Double somaEstoque(){
+        BigDecimal round = new BigDecimal(qntEstoque * precoPacote).setScale(2);
+        return round.doubleValue();
     }
-
 }

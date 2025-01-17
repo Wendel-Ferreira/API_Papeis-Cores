@@ -1,6 +1,6 @@
 package com.api.papeis.cores.API_Papeis.Cores.Controller.API.Estoque.Papelaria;
 
-import com.api.papeis.cores.API_Papeis.Cores.Model.Estoque.Papelaria;
+import com.api.papeis.cores.API_Papeis.Cores.Model.Estoque.Papelaria.Papelaria;
 import com.api.papeis.cores.API_Papeis.Cores.Service.Estoque.PapelariaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

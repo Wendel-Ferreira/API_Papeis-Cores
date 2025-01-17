@@ -1,7 +1,7 @@
 package com.api.papeis.cores.API_Papeis.Cores.Controller.Http.Estoque.Papelaria;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.api.papeis.cores.API_Papeis.Cores.Model.Estoque.Papelaria;
+import com.api.papeis.cores.API_Papeis.Cores.Model.Estoque.Papelaria.Papelaria;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Component;
 

@@ -3,9 +3,9 @@ package com.api.papeis.cores.API_Papeis.Cores.Controller.JavaFX.Estoque.Papelari
 import com.api.papeis.cores.API_Papeis.Cores.Controller.Http.Estoque.Insumo.HttpInsumo;
 import com.api.papeis.cores.API_Papeis.Cores.Controller.Http.Estoque.Papelaria.HttpAddPapelaria;
 import com.api.papeis.cores.API_Papeis.Cores.MainApplication;
-import com.api.papeis.cores.API_Papeis.Cores.Model.Estoque.Insumo;
-import com.api.papeis.cores.API_Papeis.Cores.Model.Estoque.InsumoSelecionado;
-import com.api.papeis.cores.API_Papeis.Cores.Model.Estoque.Papelaria;
+import com.api.papeis.cores.API_Papeis.Cores.Model.Estoque.Insumo.Insumo;
+import com.api.papeis.cores.API_Papeis.Cores.Model.Estoque.Insumo.InsumoSelecionado;
+import com.api.papeis.cores.API_Papeis.Cores.Model.Estoque.Papelaria.Papelaria;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -29,7 +29,6 @@ public class ControllerAddPapelaria implements Initializable {
     @FXML
     private TableView<InsumoSelecionado> tableViewInsumo;
 
-    //Testar o checkBox
     private InsumoSelecionado insumoSelecionado;
 
     //Coluna
@@ -76,7 +75,6 @@ public class ControllerAddPapelaria implements Initializable {
     @FXML
     private void visualizarTabela() {
 
-        // Configuração básica das colunas
         columnNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
         columnValorUni.setCellValueFactory(new PropertyValueFactory<>("valorUnitarioInsumo"));
 
@@ -179,7 +177,6 @@ public class ControllerAddPapelaria implements Initializable {
             Double margem = Double.parseDouble(textFieldMargem.getText());
 
 
-            // CHATGPT COMO EU CONSIGO SOMAR O valorTotal e passa como parametro na classe papelaria?
             Double totalInsumo = 0d;
             for (InsumoSelecionado selecionado : insumosSelecionados) {
                 totalInsumo += selecionado.getValorTotal();
@@ -196,11 +193,7 @@ public class ControllerAddPapelaria implements Initializable {
             textFieldQntPacote.clear();
             textFieldLucro.clear();
             textFieldMargem.clear();
-            // Para fins de teste, exibe os dados coletados
-            for (InsumoSelecionado selecionado : insumosSelecionados) {
-                System.out.println("Nome: " + selecionado.getNome());
-                System.out.println("Valor total do insumo: " + selecionado.getValorTotal());
-            }
+
         }
 public void initialize(URL url, ResourceBundle resourceBundle) {
     visualizarTabela();

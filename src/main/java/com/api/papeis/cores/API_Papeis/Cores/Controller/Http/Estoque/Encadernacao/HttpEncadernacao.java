@@ -1,6 +1,6 @@
 package com.api.papeis.cores.API_Papeis.Cores.Controller.Http.Estoque.Encadernacao;
 
-import com.api.papeis.cores.API_Papeis.Cores.Model.Estoque.Encadernacao;
+import com.api.papeis.cores.API_Papeis.Cores.Model.Estoque.Encadernacao.Encadernacao;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;

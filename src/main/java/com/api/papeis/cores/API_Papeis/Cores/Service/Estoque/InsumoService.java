@@ -1,6 +1,6 @@
 package com.api.papeis.cores.API_Papeis.Cores.Service.Estoque;
 
-import com.api.papeis.cores.API_Papeis.Cores.Model.Estoque.Insumo;
+import com.api.papeis.cores.API_Papeis.Cores.Model.Estoque.Insumo.Insumo;
 import com.api.papeis.cores.API_Papeis.Cores.Repository.Estoque.JpaInsumo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

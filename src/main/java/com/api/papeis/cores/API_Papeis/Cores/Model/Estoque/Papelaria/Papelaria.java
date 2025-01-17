@@ -1,10 +1,9 @@
-package com.api.papeis.cores.API_Papeis.Cores.Model.Estoque;
+package com.api.papeis.cores.API_Papeis.Cores.Model.Estoque.Papelaria;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 
 @Entity
 @Getter
@@ -55,15 +54,19 @@ public class Papelaria {
         this.lucro = lucro ;
         this.margem = margem ;
         this.valorInsumos = valorInsumos;
-        this.valorUnitario = precoPacote / qntNoPacote;
+        this.valorUnitario = valorUni();
         this.precoTotal = soma();
     }
 
     public BigDecimal soma() {
-        Double tomate = (getMargem() /100) + (getLucro() / 100) + taxa;
-        Double batata = valorUnitario + valorInsumos;
-        return BigDecimal.valueOf(batata)
-                .divide(BigDecimal.valueOf((1 - tomate)),2);
+        Double porcentagem = (getMargem() / 100) + (getLucro() / 100) + taxa;
+        Double gastos = valorUnitario + valorInsumos;
+        return BigDecimal.valueOf(gastos)
+                .divide(BigDecimal.valueOf((1 - porcentagem)),2);
+    }
+    public Double valorUni(){
+        BigDecimal bigDecimal = new BigDecimal(precoPacote / qntNoPacote).setScale(2);
+        return bigDecimal.doubleValue();
     }
 
 }

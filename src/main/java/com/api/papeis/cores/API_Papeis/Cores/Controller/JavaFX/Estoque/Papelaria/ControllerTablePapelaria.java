@@ -2,7 +2,7 @@ package com.api.papeis.cores.API_Papeis.Cores.Controller.JavaFX.Estoque.Papelari
 
 import com.api.papeis.cores.API_Papeis.Cores.Controller.Http.Estoque.Papelaria.HttpAddPapelaria;
 import com.api.papeis.cores.API_Papeis.Cores.MainApplication;
-import com.api.papeis.cores.API_Papeis.Cores.Model.Estoque.Papelaria;
+import com.api.papeis.cores.API_Papeis.Cores.Model.Estoque.Papelaria.Papelaria;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

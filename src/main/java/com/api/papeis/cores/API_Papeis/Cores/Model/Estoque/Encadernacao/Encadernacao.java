@@ -1,4 +1,4 @@
-package com.api.papeis.cores.API_Papeis.Cores.Model.Estoque;
+package com.api.papeis.cores.API_Papeis.Cores.Model.Estoque.Encadernacao;
 
 import jakarta.persistence.*;
 import lombok.Getter;
