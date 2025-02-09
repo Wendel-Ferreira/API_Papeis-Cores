@@ -151,10 +151,7 @@ public class ControllerAddPapelaria implements Initializable {
 
         @FXML
         public void addPapelaria() throws IOException, InterruptedException {
-
-
             List<InsumoSelecionado> insumosSelecionados = new ArrayList<>();
-
 
             for (InsumoSelecionado insumo : tableViewInsumo.getItems()) {
                 if (insumo.getBoxSelecionado().get()) {
